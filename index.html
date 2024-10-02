@@ -14,147 +14,163 @@
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
-  <div class="bg-white shadow-md rounded-lg p-8 max-w-lg w-full">
-    <h1 class="text-2xl font-bold text-center mb-4">TargetTag Questionnaire</h1>
-    <form id="questionnaire-form" class="space-y-4">
+  <div class="bg-white shadow-md rounded-lg p-8 max-w-3xl w-full space-y-8">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">TargetTag Questionnaire</h1>
+
+    <!-- Form -->
+    <form id="questionnaire-form" class="space-y-6">
       
-      <!-- Name -->
-      <div>
-        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-        <input type="text" id="name" name="name" required 
-               class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+      <!-- Contact Information (Two-column layout) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Name -->
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+          <input type="text" id="name" name="name" required 
+                class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <!-- Company -->
+        <div>
+          <label for="company" class="block text-sm font-medium text-gray-700">Company</label>
+          <input type="text" id="company" name="company" required 
+                class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
       </div>
 
-      <!-- Company -->
-      <div>
-        <label for="company" class="block text-sm font-medium text-gray-700">Company</label>
-        <input type="text" id="company" name="company" required 
-               class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-      </div>
-      
-      <!-- Email -->
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-        <input type="email" id="email" name="email" required 
-               class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+      <!-- Email and Phone Number (Two-column layout) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" name="email" required 
+                class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <!-- Phone (Optional) -->
+        <div>
+          <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
+          <input type="text" id="phone" name="phone" 
+                class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
       </div>
 
-      <!-- (Optional) Phone Number -->
-      <div>
-        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number (Optional)</label>
-        <input type="text" id="phone" name="phone" 
-               class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-      </div>
-      
       <!-- Location -->
       <div>
         <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
         <input type="text" id="location" name="location" required 
-               class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+              class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
       </div>
 
-      <!-- Do you run TargetTag Already? -->
-      <div>
-        <label for="targettag" class="block text-sm font-medium text-gray-700">Do you run TargetTag Already?</label>
-        <select id="targettag" name="targettag" required 
-                class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="" disabled selected>Select one</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-          <option value="NA">NA</option> 
-        </select>
-      </div>
-      
-      <!-- Do you have a credit card system in place? -->
-      <div>
-        <label for="creditcard" class="block text-sm font-medium text-gray-700">Do you have a credit card system in place?</label>
-        <select id="creditcard" name="creditcard" required 
-                class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="" disabled selected>Select one</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-          <option value="NA">NA</option> 
-        </select>
+      <!-- Various Questions (Two-column layout) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- TargetTag Already -->
+        <div>
+          <label for="targettag" class="block text-sm font-medium text-gray-700">Do you run TargetTag Already?</label>
+          <select id="targettag" name="targettag" required 
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="" disabled selected>Select one</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="NA">NA</option> 
+          </select>
+        </div>
+
+        <!-- Credit Card System -->
+        <div>
+          <label for="creditcard" class="block text-sm font-medium text-gray-700">Do you have a credit card system in place?</label>
+          <select id="creditcard" name="creditcard" required 
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="" disabled selected>Select one</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="NA">NA</option> 
+          </select>
+        </div>
+
+        <!-- IT Department -->
+        <div>
+          <label for="itdepartment" class="block text-sm font-medium text-gray-700">Do you have or work with an IT Department?</label>
+          <select id="itdepartment" name="itdepartment" required 
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="" disabled selected>Select one</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="NA">NA</option>   
+          </select>
+        </div>
+
+        <!-- Anti-virus Software -->
+        <div>
+          <label for="antivirus" class="block text-sm font-medium text-gray-700">Do your computers have a third-party anti-virus software installed?</label>
+          <select id="antivirus" name="antivirus" required 
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="" disabled selected>Select one</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="NA">NA</option>    
+          </select>
+        </div>
       </div>
 
-      <!-- Do you have or work with an IT Department? -->
-      <div>
-        <label for="itdepartment" class="block text-sm font-medium text-gray-700">Do you have or work with an IT Department?</label>
-        <select id="itdepartment" name="itdepartment" required 
-                class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="" disabled selected>Select one</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-          <option value="NA">NA</option>   
-        </select>
+      <!-- Number of Computers and Location -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Number of Computers -->
+        <div>
+          <label for="computers" class="block text-sm font-medium text-gray-700">How many computers will need TargetTag installed?</label>
+          <input type="number" id="computers" name="computers" required 
+                class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <!-- Are all computers at the same location? -->
+        <div>
+          <label for="same_location" class="block text-sm font-medium text-gray-700">Are all computers at the same location?</label>
+          <select id="same_location" name="same_location" required 
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="" disabled selected>Select one</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="NA">NA</option> 
+          </select>
+        </div>
       </div>
 
-      <!-- Do your computers have a third-party anti-virus software installed? -->
-      <div>
-        <label for="antivirus" class="block text-sm font-medium text-gray-700">Do your computers have a third-party anti-virus software installed?</label>
-        <select id="antivirus" name="antivirus" required 
-                class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="" disabled selected>Select one</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-          <option value="NA">NA</option>    
-        </select>
-      </div>
-
-      <!-- How many computers will need TargetTag installed? -->
-      <div>
-        <label for="computers" class="block text-sm font-medium text-gray-700">How many computers will need TargetTag installed?</label>
-        <input type="number" id="computers" name="computers" required 
-               class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-      </div>
-
-      <!-- Are all computers at the same location? -->
-      <div>
-        <label for="same_location" class="block text-sm font-medium text-gray-700">Are all computers at the same location?</label>
-        <select id="same_location" name="same_location" required 
-                class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="" disabled selected>Select one</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-          <option value="NA">NA</option> 
-        </select>
-      </div>
-
-      <!-- If no, explain where they are -->
+      <!-- Explanation Field (Hidden) -->
       <div id="explain_location" class="hidden">
         <label for="location_explanation" class="block text-sm font-medium text-gray-700">If no, explain where they are:</label>
         <textarea id="location_explanation" name="location_explanation" rows="4" 
-                  class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                  class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
       </div>
 
       <!-- System Information -->
       <div>
         <label for="system_info" class="block text-sm font-medium text-gray-700">System Information</label>
         <textarea id="system_info" name="system_info" rows="4" placeholder="Enter CPU, RAM, OS, etc." required
-                  class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-        <!-- How do I do this? Button -->
+                  class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
         <button type="button" id="how-to-button" class="text-indigo-500 underline mt-2">How do I do this?</button>
       </div>
 
-      <!-- Set Appointment Date -->
-      <div>
-        <label for="appointment_date" class="block text-sm font-medium text-gray-700">Set Appointment Date</label>
-        <input type="date" id="appointment_date" name="appointment_date" required
-               class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-      </div>
+      <!-- Appointment Date and Call Time (Two-column layout) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Appointment Date -->
+        <div>
+          <label for="appointment_date" class="block text-sm font-medium text-gray-700">Set Appointment Date</label>
+          <input type="date" id="appointment_date" name="appointment_date" required
+                 class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
 
-      <!-- Preferred Call Time -->
-      <div>
-        <label for="call_time" class="block text-sm font-medium text-gray-700">Preferred Call Time</label>
-        <input type="time" id="call_time" name="call_time" required
-               class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        <!-- Preferred Call Time -->
+        <div>
+          <label for="call_time" class="block text-sm font-medium text-gray-700">Preferred Call Time</label>
+          <input type="time" id="call_time" name="call_time" required
+                 class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
       </div>
 
       <!-- Time Zone -->
       <div>
         <label for="timezone" class="block text-sm font-medium text-gray-700">Time Zone</label>
         <select id="timezone" name="timezone" required
-                class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
           <option value="" disabled selected>Select your time zone</option>
           <option value="PST">Pacific Standard Time (PST)</option>
           <option value="MST">Mountain Standard Time (MST)</option>
@@ -163,16 +179,17 @@
           <option value="UTC">Coordinated Universal Time (UTC)</option>
         </select>
       </div>
-	  
-	  <div class="g-recaptcha" data-sitekey="6Ldv1lUqAAAAAPY2Ee92tXGhm_tRF1yUDiXqhWyf"></div>
+
+      <!-- reCAPTCHA -->
+      <div class="g-recaptcha mt-4" data-sitekey="6Ldv1lUqAAAAAPY2Ee92tXGhm_tRF1yUDiXqhWyf"></div>
 
       <!-- Submit Button -->
-	<div class="text-center">
-		<button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-		Submit
-		</button>
-	</div>
-      
+      <div class="text-center">
+        <button type="submit" class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          Submit
+        </button>
+      </div>
+
       <!-- Success/Error Messages -->
       <div id="status-message" class="text-center text-sm mt-4 hidden"></div>
     </form>
