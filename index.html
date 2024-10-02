@@ -11,6 +11,7 @@
       emailjs.init("IBUQGiXsQbj_6gbDm"); // Replace with your EmailJS Public Key
     })();
   </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
   <div class="bg-white shadow-md rounded-lg p-8 max-w-lg w-full">
@@ -169,6 +170,12 @@
           Submit
         </button>
       </div>
+	  
+	    <form action="?" method="POST">
+			<div class="g-recaptcha" data-sitekey="6Ldv1lUqAAAAAPY2Ee92tXGhm_tRF1yUDiXqhWyf"></div>
+			<br/>
+			<input type="submit" value="Submit">
+		</form>
       
       <!-- Success/Error Messages -->
       <div id="status-message" class="text-center text-sm mt-4 hidden"></div>
