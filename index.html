@@ -126,7 +126,7 @@
                   class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
       </div>
 
-      <!-- Submit computer specifications -->
+      <!-- System Information -->
       <div>
         <label for="system_info" class="block text-sm font-medium text-gray-700">System Information</label>
         <textarea id="system_info" name="system_info" rows="4" placeholder="Enter CPU, RAM, OS, etc." required
@@ -201,7 +201,7 @@
     </div>
   </div>
 
-  <!-- JavaScript to Handle Form Submission and Modal Display -->
+  <!-- JavaScript to Handle Form Submission and Show/Hide Explanation Field -->
   <script>
     // Form submission code
     document.getElementById('questionnaire-form').addEventListener('submit', function(event) {
@@ -221,6 +221,16 @@
           statusMessage.innerText = 'Oops! Something went wrong. Please try again.';
           statusMessage.classList.remove('hidden');
         });
+    });
+
+    // Show or hide the explanation field based on the selection of "Are all computers at the same location?"
+    document.getElementById('same_location').addEventListener('change', function() {
+      const explanationField = document.getElementById('explain_location');
+      if (this.value === 'No') {
+        explanationField.classList.remove('hidden');
+      } else {
+        explanationField.classList.add('hidden');
+      }
     });
 
     // Show the modal when "How do I do this?" button is clicked
