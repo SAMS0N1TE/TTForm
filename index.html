@@ -13,13 +13,15 @@
   </script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-  <div class="bg-white shadow-md rounded-lg p-8 max-w-3xl w-full space-y-8">
-    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">TargetTag Questionnaire</h1>
-
+<body class="bg-gray-100 min-h-screen flex items-center justify-center" style="background-image: url('/bg.jpg'); background-size: cover; background-position: center;">
+  <div class="bg-white bg-opacity-30 backdrop-blur-lg border border-black-200 rounded-lg shadow-5xl p-8 max-w-3xl w-full space-y-8">
+    <h1 class="text-5xl font-extrabold text-center text-red-600 mb-6 tracking-wide relative">
+        TargetTag Questionnaire
+      <span class="absolute left-0 bottom-0 w-full h-1 bg-red-200 transform scale-x-0 transition-transform duration-300 hover:scale-x-100"></span>
+    </h1>
     <!-- Form -->
+    <div class="bg-white bg-opacity-20 backdrop-blur-xl border border-black-100 rounded-lg shadow-2xl p-8 max-w-3xl w-full space-y-8">
     <form id="questionnaire-form" class="space-y-6">
-      
       <!-- Contact Information (Two-column layout) -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Name -->
@@ -118,7 +120,7 @@
         <div>
           <label for="computers" class="block text-sm font-medium text-gray-700">How many computers will need TargetTag installed?</label>
           <input type="number" id="computers" name="computers" required 
-                class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                class="mt0 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
         </div>
 
         <!-- Are all computers at the same location? -->
@@ -144,16 +146,17 @@
       <!-- System Information -->
       <div>
         <label for="system_info" class="block text-sm font-medium text-gray-700">System Information</label>
-        <button type="button" id="how-to-button" class="text-indigo-500 underline mt-2">How do I do this?</button>
+        <button type="button" id="how-to-button" class="text-indigo-400 text-sm underline mt-1">How do I do this?</button>
         <textarea id="system_info" name="system_info" rows="4" placeholder="Enter CPU, RAM, OS, etc." required
                   class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
       </div>
       
-      <div>
-        <button type="button" id="appointment-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        <div class="text-center">
+          <button type="button" id="appointment-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
           Set Appointment
-        </button>
-      </div>
+          </button>
+        </div>
+
 
        <!-- Appointment Modal -->
   <div id="appointment-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center overflow-y-auto">
@@ -200,8 +203,10 @@
     </div>
   </div>
 
-      <!-- reCAPTCHA -->
-      <div class="g-recaptcha mt-4" data-sitekey="6Ldv1lUqAAAAAPY2Ee92tXGhm_tRF1yUDiXqhWyf"></div>
+      <!-- reCAPTCHA Centered -->
+        <div class="flex justify-center mt-4">
+          <div class="g-recaptcha" data-sitekey="6Ldv1lUqAAAAAPY2Ee92tXGhm_tRF1yUDiXqhWyf"></div>
+        </div>
 
       <!-- Submit Button -->
       <div class="text-center">
@@ -216,7 +221,7 @@
   </div>
 
   <!-- Modal (Pop-up window for system info instructions) -->
-  <div id="how-to-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center overflow-y-auto">
+  <div id="how-to-modal" class="fixed inset-0 bg-grey-100 bg-opacity-80 backdrop-blur-sm hidden flex items-center justify-center overflow-y-auto">
     <div class="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-md relative max-h-screen overflow-y-auto">
       <h2 class="text-xl font-bold mb-4">How to Get Basic System Information in Windows</h2>
       <p>Follow these steps to gather and submit your system information:</p>
@@ -240,7 +245,7 @@
       <button id="close-modal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">&times;</button>
     </div>
   </div>
-
+</div>
 <script>
   // Form submission code
   document.getElementById('questionnaire-form').addEventListener('submit', function(event) {
