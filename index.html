@@ -116,7 +116,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Number of Computers -->
         <div>
-          <label for="computers" class="block text-sm font-medium text-gray-700">How many computers have TargetTag installed or will need TargetTag installed?</label>
+          <label for="computers" class="block text-sm font-medium text-gray-700">How many computers will need TargetTag installed?</label>
           <input type="number" id="computers" name="computers" required 
                 class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
         </div>
@@ -143,49 +143,69 @@
 
       <!-- System Information -->
       <div>
-        <label for="system_info" class="block text-sm font-medium text-gray-700">System Information - Only fill this out if you need targettag installed on a computer you own.</label>
+        <label for="system_info" class="block text-sm font-medium text-gray-700">System Information</label>
+        <button type="button" id="how-to-button" class="text-indigo-500 underline mt-2">How do I do this?</button>
         <textarea id="system_info" name="system_info" rows="4" placeholder="Enter CPU, RAM, OS, etc." required
                   class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-        <button type="button" id="how-to-button" class="text-indigo-500 underline mt-2">How do I do this?</button>
+      </div>
+      
+      <div>
+        <button type="button" id="appointment-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          Set Appointment
+        </button>
       </div>
 
-      <!-- Appointment Date and Call Time (Two-column layout) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <!-- Appointment Modal -->
+  <div id="appointment-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center overflow-y-auto">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-lg relative">
+      <h2 class="text-xl font-bold mb-4">Set Appointment</h2>
+
+      <!-- Appointment Fields -->
+      <div class="space-y-4">
         <!-- Appointment Date -->
         <div>
           <label for="appointment_date" class="block text-sm font-medium text-gray-700">Set Appointment Date</label>
-          <input type="date" id="appointment_date" name="appointment_date" required
+          <input type="date" id="appointment_date" name="appointment_date"
                  class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
         </div>
 
         <!-- Preferred Call Time -->
         <div>
           <label for="call_time" class="block text-sm font-medium text-gray-700">Preferred Call Time</label>
-          <input type="time" id="call_time" name="call_time" required
+          <input type="time" id="call_time" name="call_time"
                  class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+        </div>
+
+        <!-- Time Zone -->
+        <div>
+          <label for="timezone" class="block text-sm font-medium text-gray-700">Time Zone</label>
+          <select id="timezone" name="timezone"
+                  class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="" disabled selected>Select your time zone</option>
+            <option value="PST">Pacific Standard Time (PST)</option>
+            <option value="MST">Mountain Standard Time (MST)</option>
+            <option value="CST">Central Standard Time (CST)</option>
+            <option value="EST">Eastern Standard Time (EST)</option>
+            <option value="UTC">Coordinated Universal Time (UTC)</option>
+          </select>
         </div>
       </div>
 
-      <!-- Time Zone -->
-      <div>
-        <label for="timezone" class="block text-sm font-medium text-gray-700">Time Zone</label>
-        <select id="timezone" name="timezone" required
-                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="" disabled selected>Select your time zone</option>
-          <option value="PST">Pacific Standard Time (PST)</option>
-          <option value="MST">Mountain Standard Time (MST)</option>
-          <option value="CST">Central Standard Time (CST)</option>
-          <option value="EST">Eastern Standard Time (EST)</option>
-          <option value="UTC">Coordinated Universal Time (UTC)</option>
-        </select>
+      <!-- Close Modal Button -->
+      <div class="text-right mt-4">
+        <button id="close-appointment-modal" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+          Save
+        </button>
       </div>
+    </div>
+  </div>
 
       <!-- reCAPTCHA -->
       <div class="g-recaptcha mt-4" data-sitekey="6Ldv1lUqAAAAAPY2Ee92tXGhm_tRF1yUDiXqhWyf"></div>
 
       <!-- Submit Button -->
       <div class="text-center">
-        <button type="submit" class="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        <button type="submit" class="w-30 bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 px-11 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
           Submit
         </button>
       </div>
@@ -196,7 +216,7 @@
   </div>
 
   <!-- Modal (Pop-up window for system info instructions) -->
-  <div id="how-to-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden items-center justify-center overflow-y-auto">
+  <div id="how-to-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center overflow-y-auto">
     <div class="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-md relative max-h-screen overflow-y-auto">
       <h2 class="text-xl font-bold mb-4">How to Get Basic System Information in Windows</h2>
       <p>Follow these steps to gather and submit your system information:</p>
@@ -221,54 +241,75 @@
     </div>
   </div>
 
-  <!-- JavaScript to Handle Form Submission and Show/Hide Explanation Field -->
-  <script>
-    // Form submission code
-    document.getElementById('questionnaire-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const statusMessage = document.getElementById('status-message');
-      const form = this;
-      
-      emailjs.sendForm('service_jecv3qw', 'template_cm1onis', this)
-        .then(function() {
-          form.reset();
-          statusMessage.className = 'text-green-500';
-          statusMessage.innerText = 'Thank you! Your submission has been sent successfully.';
-          statusMessage.classList.remove('hidden');
-        }, function(error) {
-          statusMessage.className = 'text-red-500';
-          statusMessage.innerText = 'Oops! Something went wrong. Please try again.';
-          statusMessage.classList.remove('hidden');
-        });
-    });
+<script>
+  // Form submission code
+  document.getElementById('questionnaire-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const statusMessage = document.getElementById('status-message');
+    const form = this;
+    
+    emailjs.sendForm('service_jecv3qw', 'template_cm1onis', this)
+      .then(function() {
+        form.reset();
+        statusMessage.className = 'text-green-500';
+        statusMessage.innerText = 'Thank you! Your submission has been sent successfully.';
+        statusMessage.classList.remove('hidden');
+      }, function(error) {
+        statusMessage.className = 'text-red-500';
+        statusMessage.innerText = 'Oops! Something went wrong. Please try again.';
+        statusMessage.classList.remove('hidden');
+      });
+  });
 
-    // Show or hide the explanation field based on the selection of "Are all computers at the same location?"
-    document.getElementById('same_location').addEventListener('change', function() {
-      const explanationField = document.getElementById('explain_location');
-      if (this.value === 'No') {
-        explanationField.classList.remove('hidden');
-      } else {
-        explanationField.classList.add('hidden');
-      }
-    });
+  // Show or hide the explanation field based on the selection of "Are all computers at the same location?"
+  document.getElementById('same_location').addEventListener('change', function() {
+    const explanationField = document.getElementById('explain_location');
+    if (this.value === 'No') {
+      explanationField.classList.remove('hidden');
+    } else {
+      explanationField.classList.add('hidden');
+    }
+  });
 
-    // Show the modal when "How do I do this?" button is clicked
-    document.getElementById('how-to-button').addEventListener('click', function() {
-      document.getElementById('how-to-modal').classList.remove('hidden');
-    });
+  // Show the "How do I do this?" modal
+  document.getElementById('how-to-button').addEventListener('click', function() {
+    document.getElementById('how-to-modal').classList.remove('hidden');
+  });
 
-    // Hide the modal when the close button is clicked
-    document.getElementById('close-modal').addEventListener('click', function() {
+  // Hide the "How do I do this?" modal when the close button is clicked
+  document.getElementById('close-modal').addEventListener('click', function() {
+    document.getElementById('how-to-modal').classList.add('hidden');
+  });
+
+  // Hide the "How do I do this?" modal if the background is clicked
+  document.getElementById('how-to-modal').addEventListener('click', function(event) {
+    if (event.target.id === 'how-to-modal') {
       document.getElementById('how-to-modal').classList.add('hidden');
-    });
+    }
+  });
 
-    // Hide the modal if the background is clicked
-    document.getElementById('how-to-modal').addEventListener('click', function(event) {
-      if (event.target.id === 'how-to-modal') {
-        document.getElementById('how-to-modal').classList.add('hidden');
-      }
-    });
-  </script>
+  // Handle the appointment modal
+  const modal = document.getElementById('appointment-modal');
+  const openModalButton = document.getElementById('appointment-button');
+  const closeModalButton = document.getElementById('close-appointment-modal');
+  
+  // Show the appointment modal when the button is clicked
+  openModalButton.addEventListener('click', function() {
+    modal.classList.remove('hidden');
+  });
+
+  // Hide the appointment modal when the close button is clicked
+  closeModalButton.addEventListener('click', function() {
+    modal.classList.add('hidden');
+  });
+
+  // Hide the appointment modal if the background is clicked
+  modal.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
+</script>
 </body>
 </html>
