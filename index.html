@@ -7,8 +7,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script type="text/javascript">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    (function(){
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">    (function(){
       emailjs.init("IBUQGiXsQbj_6gbDm"); // Replace with your EmailJS Public Key
     })();
   </script>
@@ -16,10 +17,9 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center" style="background-image: url('bg.png'); background-size: cover; background-position: center;">
   <div class="bg-white bg-opacity-30 backdrop-blur-lg border border-black-200 rounded-lg shadow-5xl p-8 max-w-3xl w-full space-y-8">
-    <h1 class="text-5xl font-extrabold text-center mb-6 flex items-center justify-center">
+    <h1 class="text-2xl font-extrabold text-center mb-6 flex items-center justify-center">
       <img src="ttlogo.png" alt="TagetTAG Logo" class="h-[108px] w-[260px] inline-block">
-      <span class="text-white bg-black px-2 py-1 mr-3">Questionnaire</span>
-    </h1>
+      <span class="text-white bg-black px-2 py-1 mr-3" style="font-family: 'Bebas Neue', sans-serif;">QUESTIONNAIRE</span>    </h1>
     <!-- Form -->
     <div class="bg-white bg-opacity-20 backdrop-blur-xl border border-black-100 rounded-lg shadow-2xl p-8 max-w-3xl w-full space-y-8">
     <form id="questionnaire-form" class="space-y-6">
@@ -147,7 +147,7 @@
       <!-- System Information -->
       <div>
         <label for="system_info" class="block text-sm font-medium text-black">System Information</label>
-        <button type="button" id="how-to-button" class="text-indigo-400 text-sm underline mt-1">How do I do this?</button>
+        <button type="button" id="how-to-button" class="text-indigo-800 text-sm underline mt-1">How do I do this?</button>
         <textarea id="system_info" name="system_info" rows="4" placeholder="Enter CPU, RAM, OS, etc." required
                   class="mt-1 p-3 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
       </div>
